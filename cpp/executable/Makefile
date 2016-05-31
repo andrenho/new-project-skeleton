@@ -51,8 +51,8 @@ profile: myexecutable
 # compile source files
 #
 %.o: %.cc
-	$(CXX) -c $(CPPFLAGS) $(CXXFLAGS) $(WARNINGS) $(TARGET_CXXFLAGS) $^
-	$(CXX) -MM $(CPPFLAGS) $(CXXFLAGS) $^ > $*.d
+	$(CXX) -c $(CPPFLAGS) $(CXXFLAGS) $(WARNINGS) $(TARGET_CXXFLAGS) $<
+	$(CXX) -MM $(CPPFLAGS) $(CXXFLAGS) $< > $*.d
 	@mv -f $*.d $*.d.tmp
 	@sed -e 's|.*:|$*.o:|' < $*.d.tmp > $*.d
 	@cp -f $*.d $*.d.tmp
